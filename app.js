@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 app.set("view engine","ejs");
 app.use(express.static("public"));
-app.use(express.urlencoded({extends:true}));
+app.use(express.urlencoded({extended:true}));
 
 var items = [];
 
@@ -40,7 +40,7 @@ app.post("/toggle",(req,res) => {
 app.post("/edit",(req,res) => {
     const {index, newText} = req.body;
     if (newText.trim()){
-        items[index] ={text: newText};
+        items[index].text =newText;
     }
     res.redirect("/");
 });
