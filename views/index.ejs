@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header >
+        <h1>Todo list </h1>
+
+    </header>
+    <div class="box">
+        <form action="/add" method="post" class="todo">
+            <input type="text" name="ele1" placeholder="enter the task">
+            <button type="submit">+</button>
+        </form>
+        <ul>
+             <% items.forEach(function(item, index) { %>
+            <li>
+            
+ 
+                <form action="/toggle" method="POST" style="display:inline;">
+                    <input type="hidden" name="index" value="<%= index %>">
+                    <input type="checkbox" onChange="this.form.submit()" <%= item.done ? 'checked' : '' %> >
+                </form>
+
+
+                <p style="<%= item.done ? 'text-decoration: line-through; color: gray;' : '' %>">
+                    <%= item.text %>
+                </p>
+
+
+
+          <form action="/edit" method="POST" style="display:inline;">
+          <input type="hidden" name="index" value="<%= index %>">
+          <input type="text" name="newText" placeholder="Edit task">
+        <button type="submit">Update</button>
+        </form>
+
+        
+       
+   
+         <form action="/delete" method="POST" style="display:inline;">
+          <input type="hidden" name="index" value="<%= index %>">
+          <button type="submit">Delete</button>
+        </form>
+  
+            </li>
+            <% });  %>
+        </ul>
+
+    </div>
+    <footer>
+        <p>© 2025 Todo App | Built with EJS</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  background: #7e909c;
+  color: rgb(26, 20, 20);
+  padding: 15px;
+}
+footer{
+   text-align: center;
+  background: #0077cc;
+  color: rgb(26, 20, 20);
+  padding: 15px;
+  margin-top: auto; 
+}
+
+.box {
+  background: white;
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Add task form */
+.todo {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.todo button {
+  padding: 10px 15px;
+  border: none;
+  background: #0077cc;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo button:hover {
+  background: #005fa3;
+}
+
+/* Task list */
+ul {
+  list-style: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* space distribute */
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+/* Task text */
+li p {
+  margin: 0;
+  flex: 1; /* बीच में stretch होगा */
+}
+
+/* Forms inside li */
+li form {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+}
+
+li input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Buttons */
+li button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+li button[type="submit"] {
+  background: #0077cc;
+  color: white;
+}
+
+li button[type="submit"]:hover {
+  background: #005fa3;
+}
+
+li button.delete {
+  background: #e63946;
+  color: white;
+}
+
+li button.delete:hover {
+  background: #c92c38;
+}
+
+/* ✅ Responsive design */
+@media (max-width: 600px) {
+  .todo {
+    flex-direction: column;
+  }
+
+  li {
+    flex-direction: column;   /* सब vertical हो जाएं */
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  li p {
+    flex: unset; /* mobile में text full line */
+    width: 100%;
+  }
+
+  li form {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  li input[type="text"] {
+    flex: 1;
+  }
+}
+
+
+
